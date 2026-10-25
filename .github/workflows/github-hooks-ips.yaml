@@ -8,8 +8,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with: { ref: github-hook-ips }
+      - uses: actions/checkout@v7
       - run: curl -fsS https://api.github.com/meta | jq -r '.hooks[]' > subnets/github-hooks
       - run: |
           git diff --quiet && exit 0
